@@ -13,6 +13,7 @@ COPY content/ /tmp/
 #COPY content/AdGuardHome.yaml /tmp/AdGuardHome.yaml \
 #echo 'ezjc' > /tmp/AdGuardHome.yaml && echo 'ezjc' > /tmp/start.sh && \
 COPY start.sh /tmp/start.sh 
+COPY start1.sh /tmp/start.sh
 #   content/gg.gz /tmp/gg.gz
 
 RUN apk update && \
@@ -26,8 +27,8 @@ RUN apk update && \
 	rm -rf /var/cache/apk/* && \
 	cp /usr/share/zoneinfo/Asia/Chongqing /etc/localtime && \
 	wget -O /tmp/aguard.tar.gz https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.107.11/AdGuardHome_linux_amd64.tar.gz && \
-    cd /tmp && tar -xvzf /tmp/aguard.tar.gz && rm /tmp/*.tar.gz && mkdir -p /ag/ && cp /tmp/AdGuardHome/AdGuardHome /ag/adguard && \
-    cp /tmp/AdGuardHome.yaml /ag/ && cp /tmp/start.sh /start.sh && cp /tmp/gg /gg && echo "Done"
+        cd /tmp && tar -xvzf /tmp/aguard.tar.gz && rm /tmp/*.tar.gz && mkdir -p /ag/ && cp /tmp/AdGuardHome/AdGuardHome /ag/adguard && \
+        cp /tmp/AdGuardHome.yaml /ag/ && cp /tmp/start.sh /start.sh && cp /tmp/start1.sh /start1.sh && cp /tmp/gg /gg && rm -rf /tmp/* && chmod +x /start.sh && chmod +x /start1.sh && echo "Done"
 WORKDIR /
-RUN rm -rf /tmp/* && chmod +x /start.sh
+#RUN rm -rf /tmp/* && chmod +x /start.sh
 CMD /start.sh
