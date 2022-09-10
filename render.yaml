@@ -9,7 +9,7 @@ services:
     branch: main # optional (defaults to master)
     dockerCommand: ./start1.sh # optional (defaults to Dockerfile command)
     numInstances: 1 # optional (defaults to 1)
-    healthCheckPath: /
+#    healthCheckPath: /
     envVars:
       - key: REDIS_HOST
         sync: false 
