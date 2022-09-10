@@ -1,5 +1,6 @@
 #!/bin/sh
-cat /etc/caddy/Caddyfile | sed  -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" > /etc/caddy/Caddyfile 
+#cat /etc/caddy/Caddyfile | sed  -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" > /etc/caddy/Caddyfile 
+sed  -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" /etc/caddy/Caddyfile > /etc/caddy/Caddyfile 
 echo "nameserver 127.0.0.1" > /etc/resolv.conf 
 sed -i "s/\$DNS/$DNS/g" /ag/AdGuardHome.yaml 
 /ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ -l /ag/ag.log &
