@@ -1,24 +1,26 @@
 FROM alpine:edge
 WORKDIR /tmp
 ARG SH_PASS="password"
-ENV MYPATH="ckczjc"
-ENV CADDYIndexPage="https://github.com/asiaqa/asset/raw/main/webpage-master.zip"
-ENV TZ="Asia/Chongqing"
-ENV PASS="password"
-ENV USER="user"
-ENV PORT=80
-ENV DNS=53
-ADD content/AdGuardHome.yaml /tmp/AdGuardHome.yaml
-ADD content/Caddyfile /etc/caddy/Caddyfile
+ENV MYPATH="ckczjc" \
+ CADDYIndexPage="https://github.com/asiaqa/asset/raw/main/webpage-master.zip" \
+ TZ="Asia/Chongqing" \
+ PASS="password" \
+ USER="user" \
+ PORT=80 \
+ DNS=53 
+COPY content/AdGuardHome.yaml /tmp/AdGuardHome.yaml \
+   content/Caddyfile /etc/caddy/Caddyfile \
 #echo 'ezjc' > /tmp/AdGuardHome.yaml && echo 'ezjc' > /tmp/start.sh && \
-ADD start.sh /tmp/start.sh
+   start.sh /tmp/start.sh \
+   content/gg.gz /tmp/gg.gz
+
 RUN apk update && \
     apk add --no-cache ca-certificates caddy wget gzip su-exec && \
     apk add --no-cache curl bash jq ttyd p7zip findutils nano net-tools tzdata openssh busybox-suid bind-tools && \
 	apk add --no-cache curl caddy jq bash runit tzdata ttyd p7zip findutils && \
 	mkdir -p /etc/caddy/ /usr/share/caddy && echo -e "User-agent: *\nDisallow: /" >/usr/share/caddy/robots.txt && \
   	wget $CADDYIndexPage -O /usr/share/caddy/index.html && unzip -qo /usr/share/caddy/index.html -d /usr/share/caddy/ && mv /usr/share/caddy/*/* /usr/share/caddy/ && \
-  	wget -O /tmp/gg.gz https://github.com/ginuerzh/gost/releases/download/v2.11.4/gost-linux-amd64-2.11.4.gz && \
+#  	wget -O /tmp/gg.gz https://github.com/ginuerzh/gost/releases/download/v2.11.4/gost-linux-amd64-2.11.4.gz && \
 	gzip -d /tmp/gg.gz && chmod +x /tmp/gg && \
 	rm -rf /var/cache/apk/* && \
 	cp /usr/share/zoneinfo/Asia/Chongqing /etc/localtime && \
