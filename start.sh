@@ -1,4 +1,4 @@
-/gg -L=ss2+ws://AEAD_CHACHA20_POLY1305:$PASS@:80?path="/$MYPATH"&dns=127.0.0.1:$DNS/tcp | tee run.log&
+/gg -L=ss2+ws://AEAD_CHACHA20_POLY1305:$PASS@:$PORT?path="/$MYPATH"&dns=127.0.0.1:$DNS/tcp | tee run.log&
 sed -i "s/\$DNS/$DNS/g" /ag/AdGuardHome.yaml
 /ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ -l /ag/ag.log
 if [ $DNS == 53 ]
