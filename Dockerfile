@@ -30,4 +30,4 @@ RUN apk update && \
     cp /tmp/AdGuardHome.yaml /ag/ && cp /tmp/start.sh /start.sh && cp /tmp/gg /gg && echo "Done"
 WORKDIR /
 RUN rm -rf /tmp/* && chmod +x /start.sh
-CMD /start.sh && echo "nameserver 127.0.0.1" > /etc/resolv.conf
+CMD /start.sh
