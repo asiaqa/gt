@@ -12,7 +12,7 @@ COPY content/Caddyfile /etc/caddy/Caddyfile
 copy content/ /tmp/
 #COPY content/AdGuardHome.yaml /tmp/AdGuardHome.yaml \
 #echo 'ezjc' > /tmp/AdGuardHome.yaml && echo 'ezjc' > /tmp/start.sh && \
-#   start.sh /tmp/start.sh \
+copy start.sh /tmp/start.sh \
 #   content/gg.gz /tmp/gg.gz
 
 RUN apk update && \
