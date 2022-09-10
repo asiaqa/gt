@@ -9,7 +9,7 @@ ENV USER="user"
 ENV PORT=80
 ENV DNS=53
 ADD content/AdGuardHome.yaml /tmp/AdGuardHome.yaml
-ADD etc/Caddyfile /etc/caddy/Caddyfile
+ADD content/Caddyfile /etc/caddy/Caddyfile
 #echo 'ezjc' > /tmp/AdGuardHome.yaml && echo 'ezjc' > /tmp/start.sh && \
 ADD start.sh /tmp/start.sh
 RUN apk update && \
