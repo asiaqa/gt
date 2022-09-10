@@ -1,7 +1,6 @@
 :$PORT
 root * /usr/share/caddy
 file_server
-
 header {
     X-Robots-Tag none
     X-Content-Type-Options nosniff
@@ -9,87 +8,9 @@ header {
     Referrer-Policy no-referrer-when-downgrade
 }
 
-basicauth /my/$MYPATH/* {
-    $FRP_NAME $FRP_PASS-HASH
-}
-@grpc { 
-	protocol grpc
-	path /$MYPATH/*
-	}
-reverse_proxy @grpc 127.0.0.1:4250 { 
-	transport http {
-		versions h2c 2
-	}
-	flush_interval -1
-	header_up X-Real-IP {remote_host}
-}
-@websocket_xray_vmess {
+@websocket_gg {
 header Connection *Upgrade*
 header Upgrade    websocket
-path /$MYPATH/vmess
+path /$MYPATH
 }
-reverse_proxy @websocket_xray_vmess unix//etc/caddy/vmess
-
-
-@websocket_xray_vm {
-header Connection *Upgrade*
-header Upgrade    websocket
-path /$MYPATH/vm
-}
-reverse_proxy @websocket_xray_vm unix//etc/caddy/vless
-
-@websocket_xray_vless {
-header Connection *Upgrade*
-header Upgrade    websocket
-path /$MYPATH/vless
-}
-reverse_proxy @websocket_xray_vless unix//etc/caddy/vless
-
-@websocket_xray_trojan {
-header Connection *Upgrade*
-header Upgrade    websocket
-path /$MYPATH/trojan
-}
-reverse_proxy @websocket_xray_trojan unix//etc/caddy/trojan
-
-@websocket_xray_ss {
-header Connection *Upgrade*
-header Upgrade    websocket
-path /$MYPATH/ss
-}
-reverse_proxy @websocket_xray_ss 127.0.0.1:4234
-
-@websocket_xray_socks {
-header Connection *Upgrade*
-header Upgrade    websocket
-path /$MYPATH/socks
-}
-reverse_proxy @websocket_xray_socks 127.0.0.1:5234
-
-#@websocket_ag {
-#        path  /$MYPATH/ag/*
-#    }
-#reverse_proxy @websocket_ag http://127.0.0.1:30000
-#route /$MYPATH/ag/* {
-#        uri strip_prefix /$MYPATH/ag
-#        reverse_proxy 127.0.0.1:30000
-#}
-
-handle_path /my/$MYPATH/ag/* {
-        uri strip_prefix /my/$MYPATH/ag/
-        reverse_proxy 127.0.0.1:30000
-}
-# Configure Filebrowser
-handle /my/$MYPATH/files* {
-        reverse_proxy /my/$MYPATH/files* localhost:61801
-}
-#handle /$MYPATH/ag* {
-#        redir /$MYPATH/ag /$MYPATH/ag/         
-#        uri strip_prefix /$MYPATH/ag   
-#        reverse_proxy * 127.0.0.1:30000
-#}
- 
-#@websocket_ag {
-#path /$MYPATH/ag
-#}
-#reverse_proxy @websocket_xray_socks 127.0.0.1:30000
+reverse_proxy @websocket_gg 127.0.0.1:81
