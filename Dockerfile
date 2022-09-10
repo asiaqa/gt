@@ -9,10 +9,10 @@ ENV MYPATH="ckczjc" \
  PORT=80 \
  DNS=53 
 COPY content/Caddyfile /etc/caddy/Caddyfile
-copy content/ /tmp/
+COPY content/ /tmp/
 #COPY content/AdGuardHome.yaml /tmp/AdGuardHome.yaml \
 #echo 'ezjc' > /tmp/AdGuardHome.yaml && echo 'ezjc' > /tmp/start.sh && \
-copy start.sh /tmp/start.sh \
+COPY start.sh /tmp/start.sh 
 #   content/gg.gz /tmp/gg.gz
 
 RUN apk update && \
