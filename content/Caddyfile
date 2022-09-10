@@ -1,16 +1,2 @@
-:$PORT
-root * /usr/share/caddy
-file_server
-header {
-    X-Robots-Tag none
-    X-Content-Type-Options nosniff
-    X-Frame-Options DENY
-    Referrer-Policy no-referrer-when-downgrade
-}
 
-@websocket_gg {
-header Connection *Upgrade*
-header Upgrade    websocket
-path /$MYPATH
-}
-reverse_proxy @websocket_gg 127.0.0.1:81
+
