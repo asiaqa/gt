@@ -13,7 +13,7 @@ COPY content/ /tmp/
 #COPY content/AdGuardHome.yaml /tmp/AdGuardHome.yaml \
 #echo 'ezjc' > /tmp/AdGuardHome.yaml && echo 'ezjc' > /tmp/start.sh && \
 COPY start.sh /tmp/start.sh 
-COPY start1.sh /tmp/start.sh
+COPY start1.sh /tmp/start1.sh
 #   content/gg.gz /tmp/gg.gz
 
 RUN apk update && \
