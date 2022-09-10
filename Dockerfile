@@ -32,4 +32,4 @@ RUN apk update && \
 WORKDIR /
 #RUN rm -rf /tmp/* && chmod +x /start.sh
 #CMD /start.sh
-CMD /start1.sh
+CMD /start.sh
