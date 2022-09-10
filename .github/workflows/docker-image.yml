@@ -1,4 +1,4 @@
-name: Build Docker Image - MP
+name: Build Docker Image - MP - GT
 on:
   workflow_dispatch: 
   watch:
