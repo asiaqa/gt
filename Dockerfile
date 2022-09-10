@@ -8,11 +8,12 @@ ENV MYPATH="ckczjc" \
  USER="user" \
  PORT=80 \
  DNS=53 
-COPY content/AdGuardHome.yaml /tmp/AdGuardHome.yaml \
-   content/Caddyfile /etc/caddy/Caddyfile \
+COPY content/Caddyfile /etc/caddy/Caddyfile
+copy content/ /tmp/
+#COPY content/AdGuardHome.yaml /tmp/AdGuardHome.yaml \
 #echo 'ezjc' > /tmp/AdGuardHome.yaml && echo 'ezjc' > /tmp/start.sh && \
-   start.sh /tmp/start.sh \
-   content/gg.gz /tmp/gg.gz
+#   start.sh /tmp/start.sh \
+#   content/gg.gz /tmp/gg.gz
 
 RUN apk update && \
     apk add --no-cache ca-certificates caddy wget gzip su-exec && \
