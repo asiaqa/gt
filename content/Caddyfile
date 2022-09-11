@@ -14,7 +14,10 @@ header Upgrade    websocket
 path /$MYPATH
 }
 reverse_proxy @websocket_gg 127.0.0.1:81
-handle_path /ag/$MYPATH/* {
-        uri strip_prefix /ag/$MYPATH/
+handle_path /my/$MYPATH/ag/* {
+        uri strip_prefix /my/$MYPATH/ag/
         reverse_proxy 127.0.0.1:30000
+}
+basicauth /my/$MYPATH/* {
+    $MYPATH $PASS-HASH
 }
