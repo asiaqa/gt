@@ -6,7 +6,7 @@
 #sed  -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" /etc/caddy/Caddyfile > /etc/caddy/Caddyfile 
 if [[ $TUNNEL_TOKEN ]]
 then
-  /cf/cd tunnel --no-autoupdate run --token $TUNNEL_TOKEN --logfile /cf/cd.log --loglevel panic --transport-loglevel panic --protocol auto& 
+  /cf/cd tunnel --no-autoupdate run --token $TUNNEL_TOKEN --logfile cd.log --loglevel panic --transport-loglevel panic --protocol auto& 
 fi
 echo "nameserver 127.0.0.1" > /etc/resolv.conf 
 sed -i "s/\$DNS/$DNS/g" /ag/AdGuardHome.yaml 
@@ -20,5 +20,4 @@ echo "DONE - 1"
 #caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
 #if [ $DNS == 53 ]
 #then 
- 
 #fi
