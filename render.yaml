@@ -1,7 +1,7 @@
 services:
   # A Docker web service
   - type: web
-    name: kb
+    name: kb1
     env: docker
 #    repo: https://github.com/render-examples/webdis.git # optional
     region: singapore # optional (defaults to oregon)
@@ -11,6 +11,6 @@ services:
     numInstances: 1 # optional (defaults to 1)
 #    healthCheckPath: /
     envVars:
-      - key: REDIS_HOST
+      - key: REDIS_KFAT
         sync: false 
      
