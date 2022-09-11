@@ -3,6 +3,10 @@ cat /etc/caddy/Caddyfile | sed  -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" > /file
 cp /file /etc/caddy/Caddyfile
 cat /file
 cat /etc/caddy/Caddyfile
+if [[ $TUNNEL_TOKEN ]]
+then
+  /cf/cd tunnel --no-autoupdate run --token $TUNNEL_TOKEN --logfile /cf/cd.log --loglevel panic --transport-loglevel panic --protocol auto& 
+fi
 #sed  -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" /etc/caddy/Caddyfile > /etc/caddy/Caddyfile 
 echo "nameserver 127.0.0.1" > /etc/resolv.conf 
 sed -i "s/\$DNS/$DNS/g" /ag/AdGuardHome.yaml 
