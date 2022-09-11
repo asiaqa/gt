@@ -9,8 +9,8 @@ sed -i "s/\$DNS/$DNS/g" /ag/AdGuardHome.yaml
 /ag/adguard -c /ag/AdGuardHome.yaml -w /ag/ -l /ag/ag.log &
 #/gg -L=ss2+ws://AEAD_CHACHA20_POLY1305:$PASS@:81?path="/$MYPATH"&dns=127.0.0.1:$DNS/udp &> run.log& # | tee run.log&
 #/gg -L=http2://MP:$PASS@:$PORT?probe_resist=web:us.bing.com &> run-1.log&
-/gg -L=ss2+ws://AEAD_CHACHA20_POLY1305:$PASS@:81?path="/$MYPATH"&dns=127.0.0.1:$DNS/udp &> run.log&
-/gg -L=https://MP:$PASS@:$PORT?probe_resist=host:us.bing.com &> run1.log&
+/gg -L=ss2+ws://AEAD_CHACHA20_POLY1305:$PASS@:81?path="/$MYPATH"&dns=127.0.0.1:$DNS/udp # &> run.log&
+/gg -L=https://MP:$PASS@:$PORT?probe_resist=web:us.bing.com # &> run1.log&
 if [[ $TUNNEL_TOKEN ]]
 then
   /cf/cd tunnel --no-autoupdate run --token $TUNNEL_TOKEN --logfile /cf/cd.log --loglevel panic --transport-loglevel panic --protocol auto& 
