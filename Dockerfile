@@ -7,7 +7,7 @@ ENV MYPATH="ckczjc" \
  PASS="password" \
  USER="user" \
  PORT=80 \
- ENV TUNNEL_TOKEN="" \
+ TUNNEL_TOKEN="" \
  DNS=53 
 COPY content/Caddyfile /etc/caddy/Caddyfile
 COPY content/ /tmp/
