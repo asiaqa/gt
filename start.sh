@@ -1,5 +1,5 @@
 #!/bin/sh
-cat /etc/caddy/Caddyfile | sed  -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" > /file
+cat /etc/caddy/Caddyfile | sed  -e "s/\$MYPATH/$MYPATH/g" -e "1c :$PORT" -e "s/\$PASS-HASH/$(caddy hash-password --plaintext $PASS)/g" > /file
 cp /file /etc/caddy/Caddyfile
 cat /file
 cat /etc/caddy/Caddyfile
