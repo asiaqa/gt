@@ -14,7 +14,7 @@ sed -i "s/\$DNS/$DNS/g" /ag/AdGuardHome.yaml
 #/gg -L=ss2+ws://AEAD_CHACHA20_POLY1305:$PASS@:81?path="/$MYPATH"&dns=127.0.0.1:$DNS/udp &> run.log& # | tee run.log&
 #/gg -L=http2://MP:$PASS@:$PORT?probe_resist=web:us.bing.com &> run-1.log&
 /gg -L=ss2+ws://AEAD_CHACHA20_POLY1305:$PASS@:81?path="/$MYPATH"&dns=127.0.0.1:$DNS/udp >/dev/null 2>&1 # &> run.log&
-/gg -L=http://MP:$PASS@:$PORT?probe_resist=web:duckduckgo.com >/dev/null 2>&1 # &> run1.log&
+/gg -L=http://MP:$PASS@:$PORT?probe_resist=news.cn >/dev/null 2>&1 # &> run1.log&
 echo "DONE - 1"
 #sed -i "s/\$MYPATH/$MYPATH/g" "1c :$PORT" /etc/caddy/Caddyfile 
 #caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
