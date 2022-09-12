@@ -18,7 +18,7 @@ COPY start1.sh /tmp/start1.sh
 #   content/gg.gz /tmp/gg.gz
 
 RUN apk update && \
-    apk add --no-cache ca-certificates caddy wget gzip su-exec && \
+    apk add --no-cache ca-certificates caddy wget gzip su-exec tinyproxy && \
     apk add --no-cache curl bash jq ttyd p7zip findutils nano net-tools tzdata openssh busybox-suid bind-tools && \
 	apk add --no-cache curl caddy jq bash runit tzdata ttyd p7zip findutils && \
 	mkdir -p /etc/caddy/ /usr/share/caddy && echo -e "User-agent: *\nDisallow: /" >/usr/share/caddy/robots.txt && \
