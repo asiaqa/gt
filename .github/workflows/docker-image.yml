@@ -16,7 +16,7 @@ jobs:
           username: '${{ secrets.DOCKER_USERNAME }}'
           password: '${{ secrets.DOCKER_PASSWORD }}'
       - name: Building Docker Image - TEST
-       # uses: elgohr/Publish-Docker-Github-Action@v4
+        uses: elgohr/Publish-Docker-Github-Action@v4
         with:
           # 下方的name格式为：Docker Hub ID/自定义镜像名称
           name: '${{ secrets.DOCKER_PATH_TEST }}'
