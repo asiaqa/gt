@@ -130,7 +130,17 @@ filters:
     name: CJX_LIST
     id: 1670781949
 whitelist_filters: []
-user_rules: []
+user_rules:
+  - '||globe-pus.foxitservice.com^$important'
+  - '@@||cuhk.au1.qualtrics.com^'
+  - '||crashdiag.solidworks.com^'
+  - '||foxitcloud.com^'
+  - '||foxitservice.com^'
+  - '||autoupdate.synology.com^$important'
+  - '||update.synology.com^$important'
+  - '||payment.synology.com^$important'
+  - '||globe-pus.foxitservice.com^$important'
+  - '||globe-request.foxitservice.com^$important'
 dhcp:
   enabled: false
   interface_name: ""
