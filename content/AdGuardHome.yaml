@@ -118,10 +118,6 @@ filters:
     name: Perflyst and Dandelion Sprout's Smart-TV Blocklist
     id: 1658805048
   - enabled: true
-    url: https://anti-ad.net/easylist.txt
-    name: 'CHN: anti-AD'
-    id: 1658805049
-  - enabled: true
     url: https://easylist-downloads.adblockplus.org/easyprivacy.txt
     name: Easy Privacy
     id: 1670781948
@@ -129,6 +125,66 @@ filters:
     url: https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt
     name: CJX_LIST
     id: 1670781949
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_24.txt
+    name: 1Hosts (Lite)
+    id: 1671101343
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_21.txt
+    name: 'CHN: anti-AD'
+    id: 1671101344
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_29.txt
+    name: 'CHN: AdRules DNS List'
+    id: 1671101345
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt
+    name: AdGuard DNS filter
+    id: 1671101346
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt
+    name: AdAway Default Blocklist
+    id: 1671101347
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_6.txt
+    name: Dandelion Sprout's Game Console Adblock List
+    id: 1671101348
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_7.txt
+    name: Perflyst and Dandelion Sprout's Smart-TV Blocklist
+    id: 1671101349
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_10.txt
+    name: Scam Blocklist by DurableNapkin
+    id: 1671101350
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_8.txt
+    name: NoCoin Filter List
+    id: 1671101351
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_30.txt
+    name: Phishing URL Blocklist (PhishTank and OpenPhish)
+    id: 1671101352
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_11.txt
+    name: Malicious URL Blocklist (URLHaus)
+    id: 1671101353
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_31.txt
+    name: Stalkerware Indicators List
+    id: 1671101354
+  - enabled: true
+    url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_9.txt
+    name: The Big List of Hacked Malware Web Sites
+    id: 1671101355
+  - enabled: true
+    url: https://raw.githubusercontent.com/neodevpro/neodevhost/master/adblocker
+    name: NEO DEV HOST
+    id: 1671101356
+  - enabled: false
+    url: https://cdn.jsdelivr.net/gh/badmojr/1Hosts@master/Pro/adblock.txt
+    name: 1Hosts Pro
+    id: 1671439250
 whitelist_filters: []
 user_rules:
   - '||globe-pus.foxitservice.com^$important'
@@ -141,6 +197,10 @@ user_rules:
   - '||payment.synology.com^$important'
   - '||globe-pus.foxitservice.com^$important'
   - '||globe-request.foxitservice.com^$important'
+  - '||amazonaax.com^'
+  - '||sentry-cdn.com^'
+  - '||advice-ads.s3.amazonaws.com^'
+  - '||analyticsengine.s3.amazonaws.com^'
 dhcp:
   enabled: false
   interface_name: ""
