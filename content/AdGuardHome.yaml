@@ -102,11 +102,11 @@ filters:
     name: 1Hosts Pro
     id: 1671439250
   - enabled: false
-    url: https://raw.githubusercontent.com/asiaqa/ag-rule/main/output.txt
+    url: https://cdn.jsdelivr.net/gh/asiaqa/ag-rule@release/output.txt
     name: MP-MASTER
     id: 1672062868
   - enabled: true
-    url: https://raw.githubusercontent.com/asiaqa/ag-rule/main/output_simple.txt
+    url: https://cdn.jsdelivr.net/gh/asiaqa/ag-rule@release/output_simple.txt
     name: MP-SIMPLE
     id: 1672062869
 whitelist_filters: []
