@@ -8,6 +8,7 @@ ENV MYPATH="ckczjc" \
  USER="user" \
  PORT=80 \
  TUNNEL_TOKEN="" \
+ ag_simple="https://gist.githubusercontent.com/asiaqa/a891d4cceaf15bcf834fd19875536e69/raw/a77ea0a00795f83d31bb0beb793123731818c2eb/ag_basic.yaml" \
  DNS=53 
 COPY content/Caddyfile /etc/caddy/Caddyfile
 COPY content/ /tmp/
@@ -30,7 +31,7 @@ RUN apk update && \
 	mkdir -p /cf/ && wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /cf/cd && chmod +x /cf/cd && \
 	wget -O /tmp/aguard.tar.gz https://github.com/AdguardTeam/AdGuardHome/releases/latest/download/AdGuardHome_linux_amd64.tar.gz && \
         cd /tmp && tar -xvzf /tmp/aguard.tar.gz && rm /tmp/*.tar.gz && mkdir -p /ag/ && cp /tmp/AdGuardHome/AdGuardHome /ag/adguard && \
-        cp /tmp/AdGuardHome.yaml /ag/ && cp /tmp/start.sh /start.sh && cp /tmp/start1.sh /start1.sh && cp /tmp/gg /gg && rm -rf /tmp/* && chmod +x /start.sh && chmod +x /start1.sh && echo "Done"
+         wget -O /ag/AdGuardHome.yaml $ag_simple && cp /tmp/start.sh /start.sh && cp /tmp/start1.sh /start1.sh && cp /tmp/gg /gg && rm -rf /tmp/* && chmod +x /start.sh && chmod +x /start1.sh && echo "Done"
 WORKDIR /
 #RUN rm -rf /tmp/* && chmod +x /start.sh
 CMD /start.sh
