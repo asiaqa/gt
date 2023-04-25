@@ -28,7 +28,7 @@ RUN apk update && \
 	gzip -d /tmp/gg.gz && chmod +x /tmp/gg && \
 	rm -rf /var/cache/apk/* && \
 	cp /usr/share/zoneinfo/Asia/Chongqing /etc/localtime && \
-	mkdir -p /cf/ && wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O /cf/cd && chmod +x /cf/cd && \
+	mkdir -p /cf/ && wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386 -O /cf/cd && chmod +x /cf/cd && \
 	wget -O /tmp/aguard.tar.gz https://github.com/AdguardTeam/AdGuardHome/releases/latest/download/AdGuardHome_linux_amd64.tar.gz && \
         cd /tmp && tar -xvzf /tmp/aguard.tar.gz && rm /tmp/*.tar.gz && mkdir -p /ag/ && cp /tmp/AdGuardHome/AdGuardHome /ag/adguard && \
          wget -O /ag/AdGuardHome.yaml $ag_simple && cp /tmp/start.sh /start.sh && cp /tmp/start1.sh /start1.sh && cp /tmp/gg /gg && rm -rf /tmp/* && chmod +x /start.sh && chmod +x /start1.sh && echo "Done"
