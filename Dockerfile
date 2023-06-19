@@ -34,6 +34,6 @@ RUN apk update && \
          wget -O /ag/AdGuardHome.yaml $ag_simple && cp /tmp/start.sh /start.sh && cp /tmp/start1.sh /start1.sh && cp /tmp/gg /gg && rm -rf /tmp/* && chmod +x /start.sh && chmod +x /start1.sh && echo "Done"
 WORKDIR /
 #RUN rm -rf /tmp/* && chmod +x /start.sh
-CMD /start.sh
+CMD /start.sh 
 #CMD /start1.sh 
 #&> /dev/null
